@@ -6,18 +6,13 @@ import java.util.List;
 
 import myapp.cadastros.CD;
 import myapp.cadastros.Cadastro;
+import myapp.cadastros.Empresa;
 import myapp.factory.FabricaCadastro;
 import myapp.pedidos.Pedido;
 import myapp.pedidos.PedidoItem;
 
 public class Application {
 	public static void main(String[] args) {
-		//REQUISITO
-		//1 CRIAR OBJETOS QUE RELACIONANDO-SE EU TEREI UMA PERSPECTIVA DE TER UM PEDIDO COM
-		//TODAS AS INFORMAÇÕES
-		
-		//2 IMPRIMIR ESTE PEDIDO NO ESTILO CUPOM
-		
 		Cadastro artista = FabricaCadastro.criarCadastro("BRUCE DICKSON", "bruce@gmail", 989089090L);
 		
 		CD p1 = new CD(); // Livro()
@@ -36,7 +31,17 @@ public class Application {
 		p2.setFaixa(8);
 		p2.setArtista(artista);
 		
+		Empresa empresa = new Empresa(90584L, 98789L);
+		Cadastro cadEmpresa = new Cadastro();
+		cadEmpresa.setCpfCnpj("12345678900001");
+		cadEmpresa.setEmail("pedidos@gmail");
+		cadEmpresa.setEndereco("Rua inacio, 1036, centro - SP");
+		cadEmpresa.setNome("IFOOD COMIDAS E RESTAURANTES");
+		cadEmpresa.setTelefone(11954702059L);
+		empresa.setCadastroEmpresa(cadEmpresa);
+		
 		Pedido pedido = new Pedido();
+		pedido.setEmpresa(empresa);
 		Cadastro comprador = FabricaCadastro.criarCadastro("Andrew", "andrew@gmail", 954702059L);
 		
 		pedido.setComprador(comprador);
@@ -63,10 +68,7 @@ public class Application {
 		
 		pedido.setItens(itens);
 		
-		System.out.println("Pedido Cliente " + pedido.getComprador().getNome());
-		for(PedidoItem i: pedido.getItens()) {
-			System.out.println(i.getProduto().getTitulo() + " " + i.getValorVenda() + " " + i.getValorTotal());
-		}
+		PrinterApp.imprimirPedido(pedido);
 	}
 }
 
