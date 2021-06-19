@@ -10,14 +10,11 @@ public class Pedido {
 	
 	private Integer id;
 	private Date data;
-	private Double valorTotal;
 	private Integer ccf;
 	private Integer coo;
 	private Empresa empresa;
 	private Cadastro comprador;
 	private List<PedidoItem> itens;
-	
-	
 	
 	public Empresa getEmpresa() {
 		return empresa;
@@ -76,10 +73,11 @@ public class Pedido {
 	}
 	
 	public Double getValorTotal() {
-		return valorTotal;
+		Double total = 0.0;
+		for(PedidoItem item: itens) {
+			total += item.getValorTotal();
+		}
+		return total;
 	}
 	
-	public void setValorTotal(Double valorTotal) {
-		this.valorTotal = valorTotal;
-	}
 }

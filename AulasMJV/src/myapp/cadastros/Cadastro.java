@@ -6,7 +6,7 @@ public class Cadastro {
 	private String nome;
 	private Long telefone;
 	private String email;
-	private String endereco;
+	private Endereco endereco;
 	private String cpfCnpj;
 	
 	public String getCpfCnpj() {
@@ -17,12 +17,12 @@ public class Cadastro {
 		this.cpfCnpj = cpfCnpj;
 	}
 
-	public String getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(String endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+	
+	public Endereco getEndereco() {
+		return endereco;
 	}
 
 	public void setTelefone(Long telefone) {
@@ -49,11 +49,11 @@ public class Cadastro {
 		this.email = email;
 	}
 	
-	private Integer getId() {
+	public Integer getId() {
 		return id;
 	}
 	
-	private void setId(Integer id){
+	public void setId(Integer id){
 		this.id = id;
 	}
 }
