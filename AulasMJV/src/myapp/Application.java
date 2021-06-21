@@ -35,7 +35,7 @@ public class Application {
 		p2.setFaixa(8);
 		p2.setArtista(artista);
 		
-		Empresa empresa = new Empresa(90584L, 98789L, 280, 25);
+		Empresa empresa = new Empresa(90584999L, 987899999L, 280, 25);
 		Cadastro cadEmpresa = new Cadastro();
 		
 		cadEmpresa.setId(12);
@@ -45,9 +45,9 @@ public class Application {
 		cadEmpresa.setTelefone(11954702059L);
 		
 		Endereco endereco = new Endereco();
-		endereco.setRua("Ermelina Andrade");
+		endereco.setLogradouro("Ermelina Andrade");
 		endereco.setBairro("Santo Amaro");
-		endereco.setLogradouro("85A");
+		endereco.setNumero("85A");
 		endereco.setCidade("São Paulo");
 		endereco.setEstado("SP");
 		cadEmpresa.setEndereco(endereco);
